@@ -57,7 +57,8 @@ while True:
     option = input(
         """
     Select an Option:
-    1. Like photos based on hashtag 
+    1. Like photos based on hashtag
+    2. Follow users based on user followers
     0. Exit
 """
     )
@@ -79,6 +80,13 @@ while True:
                 cl.relogin()
         print("Done!")
         input("Press Enter to continue...")
+    if option == "2":
+        user = input("Enter user: ")
+        amount = int(input("Enter quantity: "))
+        user_id = cl.user_id_from_username(user)
+        users = cl.user_followers(user_id, amount=amount)
+        print(users)
+        input('Press Enter to continue...')
 
     elif option == "0":
         print("Bye!")
